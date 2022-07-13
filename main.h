@@ -1,27 +1,33 @@
 #ifndef MAIN_H
 #define MAIN_H
-
+#include <unistd.h>
 #include <stdarg.h>
+#include <limits.h>
+#include <stddef.h>
+#include <stdlib.h>
 
 
 int _printf(const char *format, ...);
 int _putchar(char c);
 
 /**
- * struct specify - a function for conversion specifiers
+ * struct printf - a function for conversion specifiers
  * and their corresponding functions.
- * @symbol: The specifier
- * @func: the corresponding function.
+ * @t: The specifier
+ * @f: the corresponding function
  */
 
-struct specify
+typedef struct printf
 {
-	char *symbol;
-	int (*func)(va_list);
-};
+	char *t;
+	int (*f)(va_list list);
+} print;
 
-typedef struct specify specified;
-
+int printchar(va_list);
+int printstr(va_list);
+int printint(va_list);
+int printnum(va_list);
+int printbinary(va_list list);
+int binary(unsigned int n, int *ptr);
 
 #endif
-
