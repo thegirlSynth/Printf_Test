@@ -5,8 +5,6 @@
 #include <limits.h>
 #include <stddef.h>
 #include <stdlib.h>
-
-
 int _printf(const char *format, ...);
 int _putchar(char c);
 
@@ -19,7 +17,7 @@ int _putchar(char c);
 
 typedef struct printf
 {
-	char *t;
+	char t;
 	int (*f)(va_list list);
 } print;
 
@@ -27,7 +25,16 @@ int printchar(va_list);
 int printstr(va_list);
 int printint(va_list);
 int printnum(va_list);
-int printbinary(va_list list);
 int binary(unsigned int n, int *ptr);
+int printbinary(va_list list);
+int octal(unsigned int n, int *ptr);
+int printoctal(va_list);
+int printunsigned(va_list);
+int hexa(unsigned int n, int *ptr);
+int printhexa(va_list);
+int HEXA(unsigned int n, int *ptr);
+int printHEXA(va_list);
+
 
 #endif
+
