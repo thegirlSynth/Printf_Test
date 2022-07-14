@@ -10,26 +10,37 @@
 int main(void)
 {
     int len;
-    int len2;
+    int len2, len3, len4, len5;
     unsigned int ui;
     void *addr;
 
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
-  ui = (unsigned int)INT_MAX + 1024; 
+  ui = (unsigned int)INT_MAX * 2; 
     addr = (void *)0x7ffe637541f0;
     _printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len2, len2);
     _printf("Negative:[%d]\n", -762534);
     printf("Negative:[%d]\n", -762534);
-  _printf("The binary digit of %i is: %b\n", 98, 98);
- 
+   len3 = _printf("%b\n", 4);
+    _printf("The binary digit of %i is: %b\n", 98, 98);
+ _printf("Length of binary is:[%d]\n", len3);
+  printf("Length of binary is:[%d]\n", len3);
     _printf("Unsigned:[%u]\n", ui);
     printf("Unsigned:[%u]\n", ui);
-    _printf("Unsigned octal:[%o]\n", ui);
-    printf("Unsigned octal:[%o]\n", ui);
-    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+  
+   _printf("Unsigned octal:[%o]\n", -98);
+    printf("Unsigned octal:[%o]\n", -98);
+  len4 = _printf("%o\n", 98);
+   _printf("Length of octal is:[%d]\n", len4);
+  printf("Length of octal is:[%d]\n", len4);
+  
+   _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+  len5 = _printf("%X\n", ui);
+ _printf("Length of hexadecimal is:[%d]\n", len5);
+  printf("Length of hexadecimal is:[%d]\n", len5);
+  
     _printf("Character:[%c]\n", 'H');
     printf("Character:[%c]\n", 'H');
     _printf("String:[%s]\n", "I am a string !");
